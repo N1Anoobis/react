@@ -11,7 +11,7 @@ const Hero = (props) => (
 );
 
 Hero.propTypes = {
-  titleText: PropTypes.node,
+  titleText: PropTypes.string,
   image: PropTypes.string,
 };
 

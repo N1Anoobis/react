@@ -3,7 +3,6 @@ import Icon from '../Icon/Icon';
 import styles from './Column.scss';
 import PropTypes from 'prop-types';
 import Card from '../Card/Card';
-
 import Creator from '../Creator/Creator';
 import { settings } from '../../data/dataStore';
 
@@ -13,22 +12,21 @@ class Column extends React.Component {
     cards: this.props.cards || [],
   }
 
+  static propTypes = {
+    title: PropTypes.string.isRequired,
+    children: PropTypes.node.isRequired,
+    image: PropTypes.string,
+    column: PropTypes.node,
+    description: PropTypes.string,
+    columns: PropTypes.array,
+    icon: PropTypes.string,
+  }
 
-  // static propTypes = {
-  //     title: PropTypes.node.isRequired,
-  // children: PropTypes.node.isRequired,
-  // image: PropTypes.node.isRequired,
-  //   column: PropTypes.node,
-  //   description: PropTypes.node,
-  //   columns: PropTypes.array,
-  // }
-
-  // static defaultProps = {
-  // children: <p>I can do all the things!!!</p>,
-  // description: settings.defaultListDescription,
-  // column: "animal",
-  // }
-
+  static defaultProps = {
+    children: <p>I can do all the things!!!</p>,
+    description: settings.defaultListDescription,
+    column: "animal",
+  }
 
   addCard(title) {
     this.setState(state => (
@@ -46,41 +44,24 @@ class Column extends React.Component {
     ));
   }
 
-
-
-
-
-
-
   render() {
     return (
       < section className={styles.component} >
-        <h3 className={styles.title}>{this.props.title}
-          <span className={styles.icon}>
-            {/* {this.state.cards.map(({ key }) => ( */}
-              <Icon key='3' name={this.props.icon} />
-
-            {/* // ))} */}
-          </span>
+        <h3 className={styles.title}><span className={styles.icon}>
+          <Icon key='3' name={this.props.icon} />
+        </span>{this.props.title}
         </h3>
-
-        {/* {...console.log(this.props.icon)} */}
-
         <div className={styles.cards}>
           {this.state.cards.map(({ key, ...columnProps }) => (
             <Card key={key} {...columnProps} />
-
           ))}
-
         </div>
-
-
         <div className={styles.creator}>
           <Creator text={settings.cardCreatorText} action={title => this.addCard(title)} />
         </div>
       </section >
     )
   }
-
 }
+
 export default Column;
