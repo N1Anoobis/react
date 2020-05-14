@@ -14,18 +14,7 @@ class Column extends React.Component {
 
   static propTypes = {
     title: PropTypes.string.isRequired,
-    children: PropTypes.node.isRequired,
-    image: PropTypes.string,
-    column: PropTypes.node,
-    description: PropTypes.string,
-    columns: PropTypes.array,
     icon: PropTypes.string,
-  }
-
-  static defaultProps = {
-    children: <p>I can do all the things!!!</p>,
-    description: settings.defaultListDescription,
-    column: "animal",
   }
 
   addCard(title) {
