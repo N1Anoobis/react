@@ -17,6 +17,9 @@ class List extends React.Component {
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     description: PropTypes.string,
+    action: PropTypes.string,
+    text: PropTypes.string,
+    titleText: PropTypes.string,
   }
 
   static defaultProps = {
@@ -40,7 +43,9 @@ class List extends React.Component {
   }
 
   render() {
+
     return (
+
       <section className={styles.component}>
         <Hero titleText={this.props.title} image={this.props.image} />
         <div className={styles.description}>
