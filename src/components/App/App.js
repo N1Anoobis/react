@@ -9,6 +9,7 @@ class App extends React.Component {
 
   state = {
     lists: this.props.lists || [],
+    value: null,
   }
   static defaultProps = {
     lists: listData.lists,
@@ -34,15 +35,18 @@ class App extends React.Component {
     ));
   }
 
-  getData(val) {
-    console.log(val);
+  getData=(val)=> {
+    console.log(val.close);
+    this.setState({
+      value : val.close,
+    });
   }
 
   render() {
     return (
       <>
         <Hamburger sendData={this.getData} />
-        <main className={this.getData ? styles.show : styles.close}>
+        <main className={this.state.value ? styles.show : styles.close}>
           <h1 className={styles.title}>{pageContents.title}</h1>
           <h2 className={styles.subtitle}>{pageContents.subtitle}</h2>
           <div>
