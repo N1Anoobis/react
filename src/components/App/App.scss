@@ -22,3 +22,11 @@
 .title + .subtitle {
   margin-top: (- $base-size * 3);
 }
+
+.close {
+  display: none;
+}
+
+.show {
+  display: block;
+}

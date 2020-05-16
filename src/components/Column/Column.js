@@ -35,7 +35,7 @@ class Column extends React.Component {
 
   render() {
     return (
-      < section className={styles.component} >
+      <section className={styles.component}>
         <h3 className={styles.title}><span className={styles.icon}>
           <Icon key='3' name={this.props.icon} />
         </span>{this.props.title}
@@ -48,7 +48,7 @@ class Column extends React.Component {
         <div className={styles.creator}>
           <Creator text={settings.cardCreatorText} action={title => this.addCard(title)} />
         </div>
-      </section >
+      </section>
     )
   }
 }
