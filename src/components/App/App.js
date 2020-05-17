@@ -8,11 +8,12 @@ import Hamburger from '../Hamburger/Hamburger.js';
 class App extends React.Component {
 
   state = {
-    lists: this.props.lists || [],
+    // lists: this.props.lists || [],
+    lists: listData.lists,
     value: null,
   }
   static defaultProps = {
-    lists: listData.lists,
+    // lists: listData.lists,
   }
 
   // static propTypes = {
@@ -35,10 +36,10 @@ class App extends React.Component {
     ));
   }
 
-  getData=(val)=> {
+  getData = (val) => {
     console.log(val.close);
     this.setState({
-      value : val.close,
+      value: val.close,
     });
   }
 

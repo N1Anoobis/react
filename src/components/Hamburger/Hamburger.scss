@@ -1,11 +1,13 @@
 @import '../../styles/settings.scss';
- 
+
 .hidden {
-   color: red;
+   color: green;
+   font-size: 22px;
+   width: 22px;
 }
 
 .show {
-color: green;
-// background-color: yellowgreen;
-width: 12px;
+   color: blue;
+   font-size: 22px;
+   width: 22px;
 }

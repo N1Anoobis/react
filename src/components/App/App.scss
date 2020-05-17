@@ -24,9 +24,13 @@
 }
 
 .close {
-  display: none;
+  left: -100%;
+  transition: .3s;
+  position: relative;
 }
 
 .show {
-  display: block;
+  left: 0;
+  transition: .3s;
+  position: relative;
 }

@@ -17,7 +17,7 @@ class Hamburger extends React.Component {
     render() {
         return (
             <div className={this.state.close ? styles.hidden : styles.show} onClick={this.handleMenu}>
-                <i className={'fas fa-bars'} > </i>
+                <i className={this.state.close ? 'fas fa-bars' : 'fas fa-times'} > </i>
             </div>
         )
     }
