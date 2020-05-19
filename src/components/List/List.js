@@ -15,15 +15,17 @@ class List extends React.Component {
 
   static propTypes = {
     title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
+    image: PropTypes.string,
     description: PropTypes.string,
     action: PropTypes.string,
     text: PropTypes.string,
     titleText: PropTypes.string,
+    columns: PropTypes.array,
   }
 
   static defaultProps = {
     description: settings.defaultListDescription,
+    // image: this.props.image,
   }
 
   addColumn(title) {
@@ -35,15 +37,15 @@ class List extends React.Component {
             key: state.columns.length ? state.columns[state.columns.length - 1].key + 1 : 0,
             title,
             icon: 'list-alt',
-            cards: []
-          }
-        ]
+            cards: [],
+          },
+        ],
       }
     ));
   }
 
   render() {
-
+    // console.log(this.props);
     return (
 
       <section className={styles.component}>
@@ -55,13 +57,12 @@ class List extends React.Component {
           {this.state.columns.map(({ key, ...columnProps }) => (
             <Column key={key} {...columnProps} />
           ))}
-
         </div>
         <div className={styles.creator}>
           <Creator text={settings.columnCreatorText} action={title => this.addColumn(title)} />
         </div>
       </section>
-    )
+    );
   }
 }
 

@@ -4,6 +4,7 @@ import List from '../List/List.js';
 import { pageContents, listData, settings } from '../../data/dataStore';
 import Creator from '../Creator/Creator';
 import Hamburger from '../Hamburger/Hamburger.js';
+import PropTypes from 'prop-types';
 
 class App extends React.Component {
 
@@ -13,12 +14,12 @@ class App extends React.Component {
     value: null,
   }
   static defaultProps = {
-    // lists: listData.lists,
+    lists: listData.lists,
   }
 
-  // static propTypes = {
-  //   lists: this.propTypes.array,
-  // }
+  static propTypes = {
+    lists: PropTypes.array,
+  }
 
   addList(title) {
     this.setState(state => (
@@ -30,8 +31,8 @@ class App extends React.Component {
             title,
             image: this.props.lists[0].image,
             description: settings.defaultListDescription,
-          }
-        ]
+          },
+        ],
       }
     ));
   }
@@ -60,7 +61,7 @@ class App extends React.Component {
           </div>
         </main>
       </>
-    )
+    );
   }
 }
 
