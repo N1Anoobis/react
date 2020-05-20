@@ -9,14 +9,14 @@ class Hamburger extends React.Component {
     }
 
     static propTypes = {
-      sendData: PropTypes.func,
+      onToggle: PropTypes.func,
     }
 
     handleMenu = () => {
-      this.props.sendData(this.state);
       this.setState({
         close: !this.state.close,
       });
+      this.props.onToggle(this.state.close);
     }
 
     render() {

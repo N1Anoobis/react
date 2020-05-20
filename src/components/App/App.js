@@ -9,19 +9,13 @@ import PropTypes from 'prop-types';
 class App extends React.Component {
 
   state = {
-    // lists: this.props.lists || [],
-    // lists: [listData],
-
     value: null,
   }
-  // static defaultProps = {
-  //   lists: listData,
-  // }
-
+  
   static propTypes = {
     lists: PropTypes.array,
-    title: PropTypes.node,
-    subtitle: PropTypes.node,
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
   }
 
   // addList(title) {
@@ -40,27 +34,21 @@ class App extends React.Component {
   //   ));
   // }
 
-  getData = (val) => {
-    console.log(val.close);
+  getData = (valFromHamburger) => {
+    console.log(valFromHamburger);
     this.setState({
-      value: val.close,
+      value: valFromHamburger,
     });
   }
 
   render() {
     const { title, subtitle, lists } = this.props;
-    // console.log(props);
     return (
       <>
-        <Hamburger sendData={this.getData} />
+        <Hamburger onToggle={this.getData} />
         <main className={this.state.value ? styles.show : styles.close}>
           <h1 className={styles.title}>{title}</h1>
           <h2 className={styles.subtitle}>{subtitle}</h2>
-          {/* <div>
-            {this.state.lists.map(({ key, ...listsProps }) => (
-              <List key={key} {...listsProps} />
-            ))}
-          </div> */}
           {lists.map(listData => (
             <List key={listData.id} {...listData} />
           ))}
