@@ -8,10 +8,6 @@ import { settings } from '../../data/dataStore';
 
 class Column extends React.Component {
 
-  // state = {
-  //   cards: this.props.cards || [],
-  // }
-
   static propTypes = {
     title: PropTypes.string.isRequired,
     icon: PropTypes.string,
@@ -23,22 +19,6 @@ class Column extends React.Component {
     icon: settings.defaultColumnIcon,
   }
 
-  // addCard(title) {
-  //   this.setState(state => (
-  //     {
-  //       cards: [
-  //         ...state.cards,
-  //         {
-  //           key: state.cards.length ? state.cards[state.cards.length - 1].key + 1 : 0,
-  //           title,
-  //           icon: 'list-alt',
-  //           cards: [],
-  //         },
-  //       ],
-  //     }
-  //   ));
-  // }
-
   render() {
     const { title, icon, cards, addCards } = this.props;
     console.log(cards);
@@ -49,16 +29,9 @@ class Column extends React.Component {
         </span>{title}
         </h3>
         <div className={styles.cards}>
-          {/* {this.state.cards.map(({ key, ...columnProps }) => (
-            <Card key={key} {...columnProps} /> */}
-
-
           {cards.map(cardsData => (
             <Card key={cardsData.id} {...cardsData} />
           ))}
-
-
-          {/* ))} */}
         </div>
         <div className={styles.creator}>
           <Creator text={settings.cardCreatorText} action={addCards} />
