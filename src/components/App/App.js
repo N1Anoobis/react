@@ -16,6 +16,7 @@ class App extends React.Component {
     lists: PropTypes.array,
     title: PropTypes.string,
     subtitle: PropTypes.string,
+    sortColumn: PropTypes.func,
   }
 
   getData = (valFromHamburger) => {
@@ -26,10 +27,10 @@ class App extends React.Component {
   }
 
   render() {
-    const { title, subtitle, lists } = this.props;
+    const { title, subtitle, lists, sortColumn } = this.props;
     return (
       <>
-        <Hamburger onToggle={this.getData} lists={lists}/>
+        <Hamburger onToggle={this.getData} lists={lists} action={sortColumn}/>
         <main className={this.state.value ? styles.show : styles.close}>
           <h1 className={styles.title}>{title}</h1>
           <h2 className={styles.subtitle}>{subtitle}</h2>

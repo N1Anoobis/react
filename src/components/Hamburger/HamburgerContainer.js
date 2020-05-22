@@ -1,18 +1,23 @@
+
 import { connect } from 'react-redux';
 import Hamburger from './Hamburger';
-// import {
-   
-//   createAction_hamburgerMenu,
-// } from '../../redux/HamburgerRedux';
+import {
+  getClickedString,
+  countVisibleColumns,
+  countAllColumns,
+  createAction_hamburgerMenu,
+} from '../../redux/hamburgerRedux';
 
 const mapStateToProps = (state) => ({
-  
+  hamburger: getClickedString(state),
+  countVisible: countVisibleColumns(state),
+  countAll: countAllColumns(state),
   columns: state.columns,
   cards: state.cards,
 });
 
-// const mapDispatchToProps = (dispatch) => ({
-//   changeSearchString: newSearchString => dispatch(createAction_hamburgerMenu(newSearchString)),
-// });
+const mapDispatchToProps = (dispatch) => ({
+  hamburgerMenu: newSearchColumn => dispatch(createAction_hamburgerMenu(newSearchColumn)),
+});
 
-export default connect(mapStateToProps)(Hamburger);
+export default connect(mapStateToProps, mapDispatchToProps)(Hamburger);
