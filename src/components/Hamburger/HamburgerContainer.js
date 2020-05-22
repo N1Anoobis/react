@@ -3,15 +3,15 @@ import { connect } from 'react-redux';
 import Hamburger from './Hamburger';
 import {
   getClickedString,
-  countVisibleColumns,
-  countAllColumns,
+  // countVisibleColumns,
+  // countAllColumns,
   createAction_hamburgerMenu,
 } from '../../redux/hamburgerRedux';
 
 const mapStateToProps = (state) => ({
   hamburger: getClickedString(state),
-  countVisible: countVisibleColumns(state),
-  countAll: countAllColumns(state),
+  // countVisible: countVisibleColumns(state),
+  // countAll: countAllColumns(state),
   columns: state.columns,
   cards: state.cards,
 });

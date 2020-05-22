@@ -9,9 +9,9 @@ class Hamburger extends React.Component {
     value: this.props.hamburger,
   }
 
-  componentDidUpdate(prevProps){
-    if(this.props.hamburger != prevProps.hamburger){
-      this.setState({value: this.props.hamburger});
+  componentDidUpdate(prevProps) {
+    if (this.props.hamburger != prevProps.hamburger) {
+      this.setState({ value: this.props.hamburger });
     }
   }
 
@@ -34,9 +34,16 @@ class Hamburger extends React.Component {
     this.props.hamburgerMenu(data);
     this.setState({
       value: data,
+      close: false,
     });
     console.log(data);
-    
+  }
+
+  reset = () => {
+    this.props.hamburgerMenu(null);
+    this.setState({
+      close: false,
+    });
   }
 
   render() {
@@ -48,11 +55,12 @@ class Hamburger extends React.Component {
         <nav className={this.state.close ? styles.inactive : styles.active} >
           <ul>
             {columns.map(column => (
-              <li key={column.id} onClick={() => this.sortFromMenu(column.title)}>  {column.title} {cards.map(card => (
+              <li key={column.id} onClick={() => this.sortFromMenu(column.id)}>  {column.title} {cards.map(card => (
                 <div key={card.id}>  {card.columnId == column.id ? card.title : null} </div>
               ))}
               </li>
             ))}
+            <li onClick={this.reset}>reset view</li>
           </ul>
         </nav>
       </div>

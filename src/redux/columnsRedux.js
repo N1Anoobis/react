@@ -1,8 +1,8 @@
 import shortid from 'shortid';
 
 // selectors
-export const getColumnsForList = ({columns}, listId) => columns.filter(column => column.listId == listId);
-
+export const getColumnsForList = ({columns, hamburger}, listId) => hamburger?columns.filter(column => column.id == hamburger):columns.filter(column => column.listId == listId);
+// hamburger 
 // action name creator
 const reducerName = 'columns';
 const createActionName = name => `app/${reducerName}/${name}`;
