@@ -3,7 +3,7 @@ import styles from './App.scss';
 import List from '../List/ListContainer';
 import Search from '../Search/SearchContainer';
 // import Creator from '../Creator/Creator';
-import Hamburger from '../Hamburger/Hamburger.js';
+import Hamburger from '../Hamburger/HamburgerContainer.js';
 import PropTypes from 'prop-types';
 
 class App extends React.Component {
@@ -29,7 +29,7 @@ class App extends React.Component {
     const { title, subtitle, lists } = this.props;
     return (
       <>
-        <Hamburger onToggle={this.getData} />
+        <Hamburger onToggle={this.getData} lists={lists}/>
         <main className={this.state.value ? styles.show : styles.close}>
           <h1 className={styles.title}>{title}</h1>
           <h2 className={styles.subtitle}>{subtitle}</h2>

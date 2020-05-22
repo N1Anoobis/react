@@ -1,13 +1,53 @@
 @import '../../styles/settings.scss';
 
 .hidden {
-   color: green;
+   color: greenyellow;
    font-size: 22px;
-   width: 22px;
+   position: fixed;
+   width: 250px;
+   background: black;
+   transition: all 0.25s ease;
+   z-index: 99;
+
+   ul {
+      li {
+         list-style: none;
+         display: flex;
+         flex-direction: column;
+         text-align: justify;
+
+         div {
+            font-size: 10px;
+         }
+      }
+   }
 }
 
 .show {
    color: blue;
    font-size: 22px;
    width: 22px;
+   position: fixed;
+
+   ul {
+      display: none;
+   }
+}
+
+
+nav {
+   &.inactive {
+      transform: none;
+      transition: transform 30ms;
+      transition: all 0.25s ease;
+      background: black;
+      height: 100vh;
+      width: 250px;
+      color: white;
+   }
+
+   &.active {
+      transform: translateX(-100%);
+      transition: all 0.25s ease;
+   }
 }
