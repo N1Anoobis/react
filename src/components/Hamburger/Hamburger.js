@@ -48,7 +48,7 @@ class Hamburger extends React.Component {
 
   render() {
     const { columns, cards } = this.props;
-    console.log(this.props.hamburger);
+    // console.log(this.props.hamburger);
     return (
       <div className={this.state.close ? styles.hidden : styles.show} >
         <i className={this.state.close ? 'fas fa-times' : 'fas fa-bars'} onClick={this.handleMenu}> </i>

@@ -5,18 +5,20 @@ import Search from '../Search/SearchContainer';
 // import Creator from '../Creator/Creator';
 import Hamburger from '../Hamburger/HamburgerContainer.js';
 import PropTypes from 'prop-types';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 class App extends React.Component {
 
   state = {
     value: null,
   }
-  
+
   static propTypes = {
     lists: PropTypes.array,
     title: PropTypes.string,
     subtitle: PropTypes.string,
     sortColumn: PropTypes.func,
+    moveCard: PropTypes.func,
   }
 
   getData = (valFromHamburger) => {
@@ -27,17 +29,42 @@ class App extends React.Component {
   }
 
   render() {
-    const { title, subtitle, lists, sortColumn } = this.props;
+    const { title, subtitle, lists, sortColumn, moveCard} = this.props;
+    const moveCardHandler = result => {
+      if(
+        result.destination
+        &&
+        (
+          result.destination.index != result.source.index
+          ||
+          result.destination.droppableId != result.source.droppableId
+        )
+      ){
+        moveCard({
+          id: result.draggableId,
+          dest: {
+            index: result.destination.index,
+            columnId: result.destination.droppableId,
+          },
+          src: {
+            index: result.source.index,
+            columnId: result.source.droppableId,
+          },
+        });
+      }
+    };
     return (
       <>
-        <Hamburger onToggle={this.getData} lists={lists} action={sortColumn}/>
+        <Hamburger onToggle={this.getData} lists={lists} action={sortColumn} />
         <main className={this.state.value ? styles.show : styles.close}>
           <h1 className={styles.title}>{title}</h1>
           <h2 className={styles.subtitle}>{subtitle}</h2>
           <Search />
-          {lists.map(listData => (
-            <List key={listData.id} {...listData} />
-          ))}
+          <DragDropContext onDragEnd={moveCardHandler}>
+            {lists.map(listData => (
+              <List key={listData.id} {...listData} />
+            ))}
+          </DragDropContext>
           {/* <div className={styles.component}>
             <Creator text='Add new list' action={title => this.addList(title)} />
           </div> */}
