@@ -28,7 +28,7 @@ export default function reducer(statePart = [], action = {}) {
 
 
       const { id, src, dest } = action.payload;
-      console.log(id);
+      console.log(dest);
       const targetCard = statePart.filter(card => card.id == id)[0];
       const targetColumnCards = statePart.filter(card => card.columnId == dest.columnId).sort((a, b) => a.index - b.index);
       // console.log(targetColumnCards)
