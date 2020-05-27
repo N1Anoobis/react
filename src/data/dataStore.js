@@ -1,6 +1,7 @@
 export const settings = {
   columnCreatorText: 'Add new column',
   cardCreatorText: 'Add new card',
+  icon: 'cat',
   creator: {
     buttonOK: 'OK',
     buttonCancel: 'Cancel',
@@ -12,6 +13,18 @@ export const settings = {
   },
   defaultListDescription: '<p>I can do all the things!!!</p>',
   defaultColumnIcon: 'list-alt',
+};
+
+export const faqContent = {
+  title: 'Faq',
+  image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
+  text:'content for faq passed from dataStore.',
+};
+
+export const infoContent = {
+  title: 'Info',
+  image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
+  text:'content for info passed from dataStore.',
 };
 
 export const pageContents = {

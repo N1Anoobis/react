@@ -1,77 +1,29 @@
 import React from 'react';
-import styles from './App.scss';
-import List from '../List/ListContainer';
-import Search from '../Search/SearchContainer';
-// import Creator from '../Creator/Creator';
-import Hamburger from '../Hamburger/HamburgerContainer.js';
+import Home from '../Home/HomeContainer';
+import Info from '../Info/Info';
+import Faq from '../Faq/Faq';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import MainLayout from '../MainLayout/MainLayout';
 import PropTypes from 'prop-types';
-import { DragDropContext } from 'react-beautiful-dnd';
+// import { listData } from '../../data/dataStore';
 
-class App extends React.Component {
+const App = () => (
+ 
+  <BrowserRouter>
+  
+    <MainLayout>
+      <Switch>
+        <Route exact path='/' component={Home} />
+        <Route exact path='/info' component={Info} />
+        <Route exact path='/faq' component={Faq} />
+      </Switch>
+    </MainLayout>
+  </BrowserRouter>
+);
 
-  state = {
-    value: null,
-  }
-
-  static propTypes = {
-    lists: PropTypes.array,
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
-    sortColumn: PropTypes.func,
-    moveCard: PropTypes.func,
-  }
-
-  getData = (valFromHamburger) => {
-    console.log(valFromHamburger);
-    this.setState({
-      value: valFromHamburger,
-    });
-  }
-
-  render() {
-    const { title, subtitle, lists, sortColumn, moveCard} = this.props;
-    const moveCardHandler = result => {
-      if(
-        result.destination
-        &&
-        (
-          result.destination.index != result.source.index
-          ||
-          result.destination.droppableId != result.source.droppableId
-        )
-      ){
-        moveCard({
-          id: result.draggableId,
-          dest: {
-            index: result.destination.index,
-            columnId: result.destination.droppableId,
-          },
-          src: {
-            index: result.source.index,
-            columnId: result.source.droppableId,
-          },
-        });
-      }
-    };
-    return (
-      <>
-        <Hamburger onToggle={this.getData} lists={lists} action={sortColumn} />
-        <main className={this.state.value ? styles.show : styles.close}>
-          <h1 className={styles.title}>{title}</h1>
-          <h2 className={styles.subtitle}>{subtitle}</h2>
-          <Search />
-          <DragDropContext onDragEnd={moveCardHandler}>
-            {lists.map(listData => (
-              <List key={listData.id} {...listData} />
-            ))}
-          </DragDropContext>
-          {/* <div className={styles.component}>
-            <Creator text='Add new list' action={title => this.addList(title)} />
-          </div> */}
-        </main>
-      </>
-    );
-  }
-}
+App.propTypes = {
+  listData: PropTypes.any,
+ 
+};
 
 export default App;
