@@ -1,27 +1,27 @@
 import React from 'react';
 import styles from './Card.scss';
 import PropTypes from 'prop-types';
-import { Draggable } from 'react-beautiful-dnd';
+// import { Draggable } from 'react-beautiful-dnd';
 
 // const { title } = this.props;
 
-const Card = ({ title, id, index }) => (
+const Card = ({ title }) => (
 
-  // <section className={styles.component}>
-  //   <h3 className={styles.title}>{title}</h3>
-  // </section>
-  <Draggable draggableId={id} index={index}>
-    {(provided) => (
-      <article
-        className={styles.component}
-        {...provided.draggableProps}
-        {...provided.dragHandleProps}
-        ref={provided.innerRef}
-      >
-        {title}
-      </article>
-    )}
-  </Draggable>
+  <section className={styles.component}>
+    <h3 className={styles.title}>{title}</h3>
+  </section>
+  // <Draggable draggableId={id} index={index}>
+  //   {(provided) => (
+  //     <article
+  //       className={styles.component}
+  //       {...provided.draggableProps}
+  //       {...provided.dragHandleProps}
+  //       ref={provided.innerRef}
+  //     >
+  //       {title}
+  //     </article>
+  //   )}
+  // </Draggable>
 );
 
 Card.propTypes = {

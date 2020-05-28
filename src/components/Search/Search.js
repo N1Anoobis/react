@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { settings } from '../../data/dataStore';
 import Icon from '../Icon/Icon';
 import Container from '../Container/Container';
+import {withRouter} from 'react-router';
 
 class Search extends React.Component {
   static propTypes = {
@@ -13,6 +14,7 @@ class Search extends React.Component {
     changeSearchString: PropTypes.func,
     countVisible: PropTypes.number,
     countAll: PropTypes.number,
+    history: PropTypes.any,
   }
 
   static defaultProps = {
@@ -20,10 +22,12 @@ class Search extends React.Component {
   }
 
   state = {
-    value: this.props.searchString,
+    value: this.props.history.location.pathname.replace('/search/', '').replace('/', '').replace('info', '').replace('list/list-1', '').replace('faq', ''),
+    
   }
 
   handleChange(event) {
+    console.log('this.state.value',this.state.value);
     this.setState({
       value: event.target.value,
       visibleButtons: event.target.value.length > 0,
@@ -31,7 +35,8 @@ class Search extends React.Component {
   }
 
   handleOK() {
-    this.props.changeSearchString(this.state.value);
+    // this.props.changeSearchString(this.state.value);
+    this.props.history.push(`/search/${this.state.value}`);
   }
 
   componentDidUpdate(prevProps) {
@@ -44,12 +49,15 @@ class Search extends React.Component {
     const { text, countVisible, countAll } = this.props;
     const { value } = this.state;
     const { icon } = settings.search;
+    console.log(this.props.history.location.pathname.replace('/search/', ''));
+
     return (
       <Container>
         <div className={styles.component}>
           <input
             type='text'
             placeholder={text}
+            // placeholder={this.state.value ? this.props.history.location.pathname.replace('/search/', '') : text}
             value={value}
             onChange={event => this.handleChange(event)}
           />
@@ -65,4 +73,4 @@ class Search extends React.Component {
   }
 }
 
-export default Search;
+export default withRouter(Search);
