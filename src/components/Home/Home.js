@@ -4,7 +4,7 @@ import styles from './Home.scss';
 import ListLink from '../ListLink/ListLink';
 // import Search from '../Search/SearchContainer';
 // import Creator from '../Creator/Creator';
-import Hamburger from '../Hamburger/HamburgerContainer.js';
+// import Hamburger from '../Hamburger/HamburgerContainer.js';
 import PropTypes from 'prop-types';
 // import { DragDropContext } from 'react-beautiful-dnd';
 
@@ -30,7 +30,7 @@ class Home extends React.Component {
   }
 
   render() {
-    const { title, subtitle, lists, sortColumn } = this.props;
+    const { title, subtitle, lists } = this.props;
     // const moveCardHandler = result => {
     //   if(
     //     result.destination
@@ -56,7 +56,7 @@ class Home extends React.Component {
     // };
     return (
       <>
-        <Hamburger onToggle={this.getData} lists={lists} action={sortColumn} />
+        {/* <Hamburger onToggle={this.getData} lists={lists} action={sortColumn} /> */}
         <main className={this.state.value ? styles.show : styles.close}>
           <h1 className={styles.title}>{title}</h1>
           <h2 className={styles.subtitle}>{subtitle}</h2>
