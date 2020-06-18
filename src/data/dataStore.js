@@ -1,5 +1,6 @@
 export const settings = {
   columnCreatorText: 'Add new column',
+  image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
   cardCreatorText: 'Add new card',
   icon: 'yin-yang',
   creator: {
@@ -30,6 +31,11 @@ export const infoContent = {
 export const pageContents = {
   title: 'My first React app',
   subtitle: 'A simple to-do app, with lists, columns and cards',
+};
+
+export let flag = {
+  flag: true,
+  id: '',
 };
 
 export const listData = {

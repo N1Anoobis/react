@@ -7,7 +7,7 @@ const mapStateToProps = (state, props) => {
   const id = props.match.params.id;
   const filteredLists = state.lists.filter(list => list.id == id);
   const listParams = filteredLists[0] || {};
-
+  console.log(props.match.params.id);
   return {
     ...listParams,
     columns: getColumnsForList(state, id),
@@ -15,6 +15,7 @@ const mapStateToProps = (state, props) => {
 };
 
 const mapDispatchToProps = (dispatch, props) => ({
+  
   addColumn: title => dispatch(createActionAddColumn({
     listId: props.match.params.id,
     title,

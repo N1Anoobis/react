@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import { settings } from '../../data/dataStore';
 import ReactHtmlParser from 'react-html-parser';
 import Container from '../Container/Container';
+import { flag } from '../../data/dataStore';
 
 class List extends React.Component {
 
@@ -23,6 +24,7 @@ class List extends React.Component {
 
   static defaultProps = {
     description: settings.defaultListDescription,
+    image: settings.image,
   }
 
   render() {
@@ -40,7 +42,7 @@ class List extends React.Component {
             ))}
           </div>
           <div className={styles.creator}>
-            <Creator text={settings.columnCreatorText} action={addColumn} />
+            {flag.flag?<Creator text={settings.columnCreatorText} action={addColumn} />:null}
           </div>
         </section>
       </Container>

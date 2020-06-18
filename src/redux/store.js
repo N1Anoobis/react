@@ -5,6 +5,7 @@ import cardsReducer from './cardsRedux';
 import searchStringReducer from './searchStringRedux';
 import hamburgerReducer from './hamburgerRedux';
 
+
 // define initial state and shallow-merge initial data
 const initialState = {
   app: initialStoreData.app,

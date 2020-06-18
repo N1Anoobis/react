@@ -10,6 +10,7 @@ import styles from './App.scss';
 import List from '../List/ListContainer';
 import SearchResults from '../SearchResults/SearchResultContainer';
 import Container from '../Container/Container';
+
 const App = () => (
  
   <BrowserRouter>

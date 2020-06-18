@@ -6,7 +6,7 @@ class Hamburger extends React.Component {
 
   state = {
     close: false,
-    value: this.props.hamburger,
+    // value: this.props.hamburger,
   }
 
   componentDidUpdate(prevProps) {
@@ -14,7 +14,6 @@ class Hamburger extends React.Component {
       this.setState({ value: this.props.hamburger });
     }
   }
-
 
   static propTypes = {
     onToggle: PropTypes.func,
@@ -48,7 +47,7 @@ class Hamburger extends React.Component {
 
   render() {
     const { columns, cards } = this.props;
-    // console.log(this.props.hamburger);
+    console.log(this.props);
     return (
       <div className={this.state.close ? styles.hidden : styles.show} >
         <i className={this.state.close ? 'fas fa-times' : 'fas fa-bars'} onClick={this.handleMenu}> </i>

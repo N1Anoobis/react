@@ -6,6 +6,7 @@ import {settings} from '../../data/dataStore';
 import ReactHtmlParser from 'react-html-parser';
 
 const ListLink = ({id, title, image, description}) => (
+  // console.log(id),
   <Link to={`/list/${id}`} className={styles.link}>
     <section className={styles.component}>
       <div className={styles.text}>

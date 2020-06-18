@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 // const { title } = this.props;
 
-const Card = ({ title }) => (
+const Card = ({ title}) => (
 
   <section className={styles.component}>
     <h3 className={styles.title}>{title}</h3>

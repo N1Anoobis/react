@@ -55,6 +55,7 @@ class Home extends React.Component {
     //   }
     // };
     return (
+      
       <>
         {/* <Hamburger onToggle={this.getData} lists={lists} action={sortColumn} /> */}
         <main className={this.state.value ? styles.show : styles.close}>

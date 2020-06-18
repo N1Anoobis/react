@@ -6,6 +6,7 @@ import { settings } from '../../data/dataStore';
 import Icon from '../Icon/Icon';
 import Container from '../Container/Container';
 import {withRouter} from 'react-router';
+import { flag } from '../../data/dataStore';
 
 class Search extends React.Component {
   static propTypes = {
@@ -22,21 +23,24 @@ class Search extends React.Component {
   }
 
   state = {
-    value: this.props.history.location.pathname.replace('/search/', '').replace('/', '').replace('info', '').replace('list/list-1', '').replace('faq', ''),
-    
+    // value: this.props.history.location.pathname.replace('/search/', '').replace('/', '').replace('info', '').replace('list/list-1', '').replace('faq', ''),
+    // value: this.props.searchString,
+    // value: flag.id,
   }
 
   handleChange(event) {
-    console.log('this.state.value',this.state.value);
+    // console.log('this.state.value',this.state.value);
     this.setState({
       value: event.target.value,
       visibleButtons: event.target.value.length > 0,
     });
+    
   }
 
   handleOK() {
     // this.props.changeSearchString(this.state.value);
     this.props.history.push(`/search/${this.state.value}`);
+    console.log( flag.id,'flag.id');
   }
 
   componentDidUpdate(prevProps) {
@@ -49,8 +53,8 @@ class Search extends React.Component {
     const { text, countVisible, countAll } = this.props;
     const { value } = this.state;
     const { icon } = settings.search;
-    console.log(this.props.history.location.pathname.replace('/search/', ''));
-
+    // console.log(this.props.history.location.pathname.replace('/search/', ''));
+   
     return (
       <Container>
         <div className={styles.component}>

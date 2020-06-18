@@ -14,6 +14,8 @@ export const createAction_hamburgerMenu = payload => ({
   payload,
   type: DISPLAY_MENU });
 
+
+
 // reducer
 export default function reducer(statePart = '', action = {}) {
   switch (action.type) {
