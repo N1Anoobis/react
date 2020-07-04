@@ -29,35 +29,30 @@ class SearchResults extends React.Component {
   }
 
   passInputValue =(id) => {
-    // console.log( id,'podalo sie');
+    
     flag.id = id;
-  
+    console.log( this.props.match.params.id ,'props.match.params.id ');
   }
+
+ 
 
   render() {
     const { cards} = this.props;
-    // console.log(this.props.history.location.pathname.replace('/List/', ''));
-    // console.log(this.props.match.params.id );
-    // this.props.history.location.pathname.replace('/List/', '')
+    console.log( this.props.match.params.id ,'props.match.params.id ');
+  
     return (
 
       <section  className={styles.component}>
         {cards.map(cardData => (
-          console.log(cardData,'cardData'),
           <>
-            {/* <Column key={columnData.id} {...columnData} /> */}
-            <Link to={`/List/${cardData.columnId}`} onChange={this.passInputValue(this.props.match.params.id)} onClick={() => this.sortFromMenu(cardData.columnId)}>
+            <Link to={`/List/${cardData.columnId}`}  onClick={() => this.sortFromMenu(cardData.columnId)}>
               <Card key={cardData.id}  {...cardData} />
             </Link>
-            {/* <Route exact path="/list/:id" component={cardData.listId} /> */}
-            
           </>
         ))}
       </section>
     );
   }
 }
-// {column.title} {cards.map(card => (
-//   <div key={card.id}>  {card.columnId == column.id ? card.title : null} </div>
-// ))}
+
 export default SearchResults;

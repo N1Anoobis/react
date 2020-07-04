@@ -26,17 +26,14 @@ export default function reducer(statePart = [], action = {}) {
     case ADD_CARD:
       return [...statePart, action.payload];
     case MOVE_CARD: {
-
-
       const { id, src, dest } = action.payload;
-      console.log(dest);
       const targetCard = statePart.filter(card => card.id == id)[0];
       const targetColumnCards = statePart.filter(card => card.columnId == dest.columnId).sort((a, b) => a.index - b.index);
-      // console.log(targetColumnCards)
+  
       if (dest.columnId == src.columnId) {
         targetColumnCards.splice(src.index, 1);
         targetColumnCards.splice(dest.index, 0, targetCard);
-        console.log(targetColumnCards.map(card => `${card.index}, title: ${card.title}`));
+     
 
         return statePart.map(card => {
           const targetColumnIndex = targetColumnCards.indexOf(card);
@@ -54,12 +51,6 @@ export default function reducer(statePart = [], action = {}) {
         sourceColumnCards.splice(src.index, 1);
         // add card to targetColumn
         targetColumnCards.splice(dest.index, 0, targetCard);
-
-        // console.log('sourceColumnCards:');
-        // console.log(sourceColumnCards.map(card => `${card.index}, title: ${card.title}`));
-        // console.log('targetColumnCards:');
-        // console.log(targetColumnCards.map(card => `${card.index}, title: ${card.title}`));
-
         return statePart.map(card => {
           const targetColumnIndex = targetColumnCards.indexOf(card);
 

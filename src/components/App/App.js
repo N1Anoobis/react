@@ -4,7 +4,7 @@ import Info from '../Info/Info';
 import Faq from '../Faq/Faq';
 import { BrowserRouter, Route } from 'react-router-dom';
 import MainLayout from '../MainLayout/MainLayout';
-// import PropTypes from 'prop-types';
+
 import {AnimatedSwitch} from 'react-router-transition';
 import styles from './App.scss';
 import List from '../List/ListContainer';
@@ -35,10 +35,5 @@ const App = () => (
     </MainLayout>
   </BrowserRouter>
 );
-
-// App.propTypes = {
-//   listData: PropTypes.any,
- 
-// };
 
 export default App;

@@ -25,7 +25,7 @@ class Search extends React.Component {
   state = {
     // value: this.props.history.location.pathname.replace('/search/', '').replace('/', '').replace('info', '').replace('list/list-1', '').replace('faq', ''),
     // value: this.props.searchString,
-    // value: flag.id,
+    value: '',
   }
 
   handleChange(event) {

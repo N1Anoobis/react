@@ -6,13 +6,7 @@ class Hamburger extends React.Component {
 
   state = {
     close: false,
-    // value: this.props.hamburger,
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.hamburger != prevProps.hamburger) {
-      this.setState({ value: this.props.hamburger });
-    }
+    value: '',
   }
 
   static propTypes = {
@@ -35,7 +29,6 @@ class Hamburger extends React.Component {
       value: data,
       close: false,
     });
-    console.log(data);
   }
 
   reset = () => {
@@ -47,7 +40,6 @@ class Hamburger extends React.Component {
 
   render() {
     const { columns, cards } = this.props;
-    console.log(this.props);
     return (
       <div className={this.state.close ? styles.hidden : styles.show} >
         <i className={this.state.close ? 'fas fa-times' : 'fas fa-bars'} onClick={this.handleMenu}> </i>
